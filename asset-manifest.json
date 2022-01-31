@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Madhumidha10/movielisttask/static/css/main.74e93456.css",
+    "main.js": "/Madhumidha10/movielisttask/static/js/main.c9294149.js",
+    "static/js/787.5eadafa7.chunk.js": "/Madhumidha10/movielisttask/static/js/787.5eadafa7.chunk.js",
+    "index.html": "/Madhumidha10/movielisttask/index.html",
+    "main.74e93456.css.map": "/Madhumidha10/movielisttask/static/css/main.74e93456.css.map",
+    "main.c9294149.js.map": "/Madhumidha10/movielisttask/static/js/main.c9294149.js.map",
+    "787.5eadafa7.chunk.js.map": "/Madhumidha10/movielisttask/static/js/787.5eadafa7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74e93456.css",
+    "static/js/main.c9294149.js"
+  ]
+}
