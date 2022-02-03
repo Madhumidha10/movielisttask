@@ -1,13 +1,93 @@
 .App {
   text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 'Roboto', sans-serif;
+  background-color: lightgray;
+}
+/* Divider{
+  background: url(https://www.pngkey.com/png/full/81-818206_clapperboard-png-transparent-images-lights-camera-action-bulletin.png
+  );
+  background-size: cover;
+} */
+.itembg{
+  display: flex;
+  flex-direction: column;
+  gap:2px;
+  margin: 5px;
+  background-color: rgb(158, 157, 157);
+  
+}
+/* label,input{
+  float:left;
+} */
+
+.btn{
+width:60px;
+height:60px;
+background-color: transparent;
+color:rgb(253, 251, 251);
+font-size: large;
+border: none;
+
+}
+.img{
+  width:500px;
+  height:200px;
+  object-fit:cover;
+  box-shadow: 0px 0px 17px 7px#545555;
+  margin:auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul{
+ 
+  display: flex;
+  flex-wrap: wrap;
+  width:100vw;
+  justify-content: left;
+  margin: auto; 
+}
+ul li{
+  width:20%;
+  background-color: rgb(18, 18, 19);
+  text-align:center;
+  color: white;
+  margin:5px 5px 5px 5px;
+  padding:4px 10px 4px 10px;
+  font-size: small;
+  box-shadow: 0px 0px 17px 7px#545555;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap:16px; 
+  justify-content:center;
+
+ 
+}
+ul li ul{
+  display:block;
+  width:100%;
+  height:auto;
+  margin: auto;
+ 
+}
+h1{
+  color:gold;
+  width:100%;
+  height:20px;
+}
+h3{
+  font-weight: bold;
+  width:100%;
+  height:10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.Counter{
+  display:block;
+  justify-content: center;
+
+
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -35,4 +115,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
