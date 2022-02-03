@@ -13,7 +13,9 @@ import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/Star';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import IconButton from '@mui/material/IconButton';
 import ToggleButton from '@mui/material/ToggleButton';
+import Badge from '@mui/material/Badge';
 export default function App() {
  
   const list = [
@@ -84,7 +86,7 @@ export default function App() {
             
             name:name,
             poster:poster,
-            cast:cast,
+            cast:[cast],
             summary:summary,
             rating:rating,
             
@@ -106,9 +108,21 @@ function Counter()
 {
   const [like, setLike] = useState(98);
   const [dislike, setdisLike] = useState(10);
-  return(<div className="Counter"> 
-   <button className='btn' onClick={e=>setLike(like+1)}>👍{like} </button>
-  <button className='btn' onClick={e=>setdisLike(dislike+1)}>👎{dislike} </button>  
+  return(<div className="Counter">
+    
+   
+     <IconButton aria-label="like" color="primary"  onClick={e=>setLike(like+1)}>
+     <Badge badgeContent={like} color="secondary" max={999}>
+    👍
+</Badge>
+</IconButton>
+<IconButton aria-label="dis-like" color="error"  onClick={e=>setdisLike(dislike+1)}>
+<Badge badgeContent={dislike} color="error" max={999}>
+👎
+</Badge>
+</IconButton>
+   {/* <button className='btn' onClick={e=>setLike(like+1)}>👍{like} </button>
+  <button className='btn' onClick={e=>setdisLike(dislike+1)}>👎{dislike} </button>   */}
 
 </div>);
 }
@@ -135,8 +149,10 @@ function Movielist({name,poster,cast,summary,rating},index)
     <Button size="medium" onClick={()=> setSelected(!selected)} >Learn Summary
       
     </Button>
-    <Typography style={toggle} component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>
+    {selected? <Typography  component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>:""}
      
+    {/* <Typography style={toggle} component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>
+      */}
        <Typography component="legend" variant="h6" sx={{color:grey[100]}} >Rating : {rating}/10 </Typography>
        <Rating name="size-small" defaultValue={rating} max={10} precision={0.5}   emptyIcon={<StarIcon style={{ color:grey[100]}} fontSize="inherit" />}readOnly />
        <Counter />
