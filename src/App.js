@@ -2,20 +2,24 @@ import './App.css';
 import React, { useState } from "react";
 import ReactStars from 'react-stars'
 import Button from '@mui/material/Button';
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
-import Collapse from '@mui/material/Collapse';
 import { grey } from '@mui/material/colors';
-import { white } from '@mui/material/colors';
 import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/Star';
-import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
-import ToggleButton from '@mui/material/ToggleButton';
-import Badge from '@mui/material/Badge';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Counter } from './Counter';
+import { textAlign } from '@mui/system';
+
 export default function App() {
  
   const list = [
@@ -61,70 +65,54 @@ export default function App() {
   const [movieList,setMovieList]=useState(list);
   const [name,setName]=useState("");
   const [poster,setPoster]=useState("");
-  const [cast,setCast]=useState([]);
+  const [cast,setCast]=useState("");
   const [summary,setSummary]=useState("");
   const [rating,setRating]=useState(0);
-  const listItems=movieList.map(({name,poster,cast,summary,rating},index)=><Movielist name={name} poster={poster} cast={cast} summary={summary} rating={rating} key={index} />)
-
+  
  
    return (
     <div className='App'>
       
    
       <div className='itembg'>
+      <Typography component="legend" variant="h4" sx={{color:grey[900],textAlign:"center"}} >New Movie</Typography>
       <TextField id="name" label="Enter the name..." variant="standard" onChange={e=>setName(e.target.value)}/> 
-       <TextField id="poster" label="Enter the URL..." variant="standard" onChange={e=>setPoster()}/> 
-       <TextField id="cast" label="Enter the Cast..." variant="standard" onChange={e=>setCast([e.target.value])}/> 
+       <TextField id="poster" label="Enter the URL..." variant="standard" onChange={e=>setPoster(e.target.value)}/> 
+       <TextField id="cast" label="Enter the Cast..." variant="standard" onChange={e=>{
+        
+         const actors =  e.target.value.split(',');
+         setCast(actors);
+}} /> 
        <TextField id="summary" label="Enter the Summary..." variant="standard" onChange={e=>setSummary(e.target.value)} multiline/> 
        <TextField id="rating"
           label="Enter the Rating.."
           type="number"
           variant="standard"
-          onChange={e=>setRating(e.target.value)}
+          onChange={e=>setRating(parseInt(e.target.value))}
         />
        <Button variant="contained"   onClick={()=>{const newMovie={ 
             
             name:name,
             poster:poster,
-            cast:[cast],
+            cast:cast,
             summary:summary,
             rating:rating,
             
            };
+           
         setMovieList([...movieList,newMovie]);
        }}>Add Movie</Button>
-         <ul type="none">{listItems}</ul>
+           </div>
+       <div className='Movie_container'> {movieList.map(({name,poster,cast,summary,rating},index)=><Movielist key={index} name={name} poster={poster} cast={cast} summary={summary} rating={rating} />)
+}</div> 
 
     </div>
     
     
       
-      </div>
+  
   
   );
-}
-
-function Counter()
-{
-  const [like, setLike] = useState(98);
-  const [dislike, setdisLike] = useState(10);
-  return(<div className="Counter">
-    
-   
-     <IconButton aria-label="like" color="primary"  onClick={e=>setLike(like+1)}>
-     <Badge badgeContent={like} color="secondary" max={999}>
-    👍
-</Badge>
-</IconButton>
-<IconButton aria-label="dis-like" color="error"  onClick={e=>setdisLike(dislike+1)}>
-<Badge badgeContent={dislike} color="error" max={999}>
-👎
-</Badge>
-</IconButton>
-   {/* <button className='btn' onClick={e=>setLike(like+1)}>👍{like} </button>
-  <button className='btn' onClick={e=>setdisLike(dislike+1)}>👎{dislike} </button>   */}
-
-</div>);
 }
 
 function Movielist({name,poster,cast,summary,rating},index)
@@ -134,45 +122,41 @@ function Movielist({name,poster,cast,summary,rating},index)
   const toggle={display:selected?"block":"none"}
   return( 
        
-       <li key={index}>
       
-        
-       <Card sx={{ maxWidth: 345,bgcolor:grey[900] }} variant="outlined" key={index}>
-       <Typography component="legend" variant="h4" sx={{color:grey[100]}} >{name} </Typography>
+      
+        <div className='movie-list' key={index}>
+       <Card sx={{ maxWidth: 345,bgcolor:grey[900] }} variant="outlined" >
+       
        
        <Avatar variant="square" alt={name} src={poster}  sx={{ width: 345, height: 200}}/>
-       <Typography component="legend" variant="h5" sx={{color:grey[100]}} >Casting </Typography> 
-   
-        {cast.map(nm=><List style={{ color:grey[100]}}>{nm}</List>)}
+       
+       <Typography component="legend" variant="h4" sx={{color:grey[100],textAlign:"center"}} >{name} 
+       <IconButton aria-label="toggle" color="primary" onClick={()=> setSelected(!selected)}>
+          {selected?<ExpandLessIcon />:<ExpandMoreIcon />}</IconButton>
+      {selected? <Typography  component="legend" variant="subtitle2" sx={{color:grey[100],textAlign:"left"}} >{summary} </Typography>:""}
      
- 
-    <Button size="medium" onClick={()=> setSelected(!selected)} >Learn Summary
-      
-    </Button>
-    {selected? <Typography  component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>:""}
-     
+       </Typography>
+       
+       <Typography component="legend" variant="h5" sx={{color:grey[100],textAlign:"left"}} >Casting </Typography> 
+        <div className='cast'>
+        {cast.map(nm=><List key={nm}  style={{ color:grey[100]}}><PersonOutlineRoundedIcon sx={{fontSize:"14px"}} />{nm}</List>)}
+        </div>
+        
     {/* <Typography style={toggle} component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>
       */}
-       <Typography component="legend" variant="h6" sx={{color:grey[100]}} >Rating : {rating}/10 </Typography>
-       <Rating name="size-small" defaultValue={rating} max={10} precision={0.5}   emptyIcon={<StarIcon style={{ color:grey[100]}} fontSize="inherit" />}readOnly />
+       <Typography component="legend" variant="h6" sx={{color:grey[100],textAlign:"center"}} >Rating : {rating}/10 
+
+       <Rating name="size-small" defaultValue={rating} max={10} precision={0.5}    emptyIcon={<StarIcon style={{ color:grey[100]}} fontSize="inherit" />}readOnly />
+       </Typography>
        <Counter />
        </Card>
       
-  
-
-      
-       {/* {cast.map(el=>{el})} style={{display:"none"}}*/}
-       {/* <ul type="none">{cast.map(nm=><li>{nm}</li>)}</ul> */}
-   
-     
-     
-       
-        
-         
+          
+       </div>   
          
    
        
-       </li>
+ 
 
   );
 }

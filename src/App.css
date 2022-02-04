@@ -1,19 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Neonderthaw&family=Poppins:wght@200&family=Roboto:wght@100&family=Syne+Tactile&display=swap');
+
 .App {
   text-align: center;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 'Roboto', sans-serif;
+  font-family: 'Dancing Script', cursive;
   background-color: lightgray;
-}
-/* Divider{
-  background: url(https://www.pngkey.com/png/full/81-818206_clapperboard-png-transparent-images-lights-camera-action-bulletin.png
-  );
-  background-size: cover;
-} */
-.itembg{
   display: flex;
-  flex-direction: column;
-  gap:2px;
-  margin: 5px;
-  background-color: rgb(158, 157, 157);
+}
+
+.itembg{
+  display: grid;
+  width:20vw;
+    background-color: rgb(158, 157, 157);
+  margin:auto;
+  box-shadow: 0px 0px 17px 7px#0a0a0a;
+  justify-content:space-evenly;
+  grid-template-columns: auto;
+  position: sticky;
+  top:0px;
+  bottom: 400px;
+
+  
   
 }
 /* label,input{
@@ -37,18 +43,19 @@ border: none;
   margin:auto;
 }
 
-ul{
+.Movie_container{
  
   display: flex;
   flex-wrap: wrap;
-  width:100vw;
+  width:80vw;
   justify-content: left;
   margin: auto; 
 }
-ul li{
+.movie-list{
   width:20%;
+  height:min-content;
   background-color: rgb(18, 18, 19);
-  text-align:center;
+  text-align:left;
   color: white;
   margin:5px 5px 5px 5px;
   padding:4px 10px 4px 10px;
@@ -62,12 +69,14 @@ ul li{
 
  
 }
-ul li ul{
-  display:block;
-  width:100%;
-  height:auto;
-  margin: auto;
- 
+.cast{
+  display:flex;
+  width:60%;
+  
+  flex-direction: column;
+  text-align: justify;
+  margin-left: 20px;
+  font-size: 16px;
 }
 h1{
   color:gold;
@@ -82,37 +91,7 @@ h3{
 
 .Counter{
   display:block;
-  justify-content: center;
+  text-align: center;
 
 
 }
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
