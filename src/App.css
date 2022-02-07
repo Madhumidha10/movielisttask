@@ -5,19 +5,22 @@
   font-family: 'Dancing Script', cursive;
   background-color: lightgray;
   display: flex;
+  /* width:100vw;
+  justify-content: space-evenly; */
 }
 
 .itembg{
   display: grid;
-  width:20vw;
+  width:15vw;
     background-color: rgb(158, 157, 157);
-  margin:auto;
+  margin:0px 0px 0px 20px;
   box-shadow: 0px 0px 17px 7px#0a0a0a;
   justify-content:space-evenly;
   grid-template-columns: auto;
   position: sticky;
   top:0px;
   bottom: 400px;
+  height: 500px;
 
   
   
@@ -47,12 +50,13 @@ border: none;
  
   display: flex;
   flex-wrap: wrap;
-  width:80vw;
+  width:70vw;
   justify-content: left;
-  margin: auto; 
+  margin: 0px 0px 0px 50px; 
+
 }
 .movie-list{
-  width:20%;
+  width:25%;
   height:min-content;
   background-color: rgb(18, 18, 19);
   text-align:left;
@@ -94,4 +98,27 @@ h3{
   text-align: center;
 
 
+}
+
+.board{
+  /* display:flex; */
+
+  display: flex;
+  flex-wrap: wrap;
+  width:25vw;
+  justify-content: center;
+  margin: 0px 50px 0px 50px; 
+}
+.game-box{
+  height:100px;
+  width:100px;
+  border:2px solid black;
+  font-size:100px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.ColorBox{
+  width:15vw;
+  margin:0px 200px 0px 200px;
 }
