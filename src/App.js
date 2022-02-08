@@ -101,6 +101,9 @@ export default function App() {
   
 
     <Switch>
+      <Route exact path="/">
+        <Msg />
+      </Route>
       <Route path="/movies">
               <div className='itembg'>
   <Typography component="legend" variant="h4" sx={{color:grey[900],textAlign:"center"}} >New Movie</Typography>
@@ -140,10 +143,13 @@ export default function App() {
       <Route path="/tic-tac-toe">
       <TicTacToe />
       </Route>
-      <Route path="/">
+      <Route path="**">
+      <PageNotFound />
+      </Route>
+      {/* <Route path="/">
         <Msg />
        
-      </Route>
+      </Route> */}
      
     </Switch>
   </div>
@@ -321,3 +327,17 @@ function GameBox({val,onPlayerClick})
 
   </div>
 }
+// onClick={() => {
+//   const updatedMovie = {
+//     name: name,
+//     poster: poster,
+//     rating: rating,
+//     summary: summary,
+//     trailer: trailer,
+//   };
+//   const copyMovieList = [...movieList];
+//   copyMovieList[id] = updatedMovie;
+//   setMovieList(copyMovieList);
+//   history.push("/movies");
+// }}
+
