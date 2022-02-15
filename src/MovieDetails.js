@@ -20,3 +20,6 @@ export function MovieDetails({ movieList }) {
 
   );
 }
+
+
+
