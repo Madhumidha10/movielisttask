@@ -2,32 +2,25 @@
 
 .App {
   text-align: center;
-  font-family: 'Dancing Script', cursive;
-  background-color: lightgray;
-  display: flex;
-  /* width:100vw;
-  justify-content: space-evenly; */
 }
-
+.MovieDetails{
+  display:block;
+  margin:auto;
+}
+.movie-inner{
+margin:auto;
+text-align: center;
+}
 .itembg{
   display: grid;
-  width:15vw;
-    background-color: rgb(158, 157, 157);
-  margin:0px 0px 0px 20px;
+  width:60vw;
+  /* background-color: rgb(158, 157, 157); */
   box-shadow: 0px 0px 17px 7px#0a0a0a;
-  justify-content:space-evenly;
   grid-template-columns: auto;
-  position: sticky;
-  top:0px;
-  bottom: 400px;
-  height: 500px;
-
-  
-  
+  margin:50px auto;
+  /* border-radius: 40px; */
+ 
 }
-/* label,input{
-  float:left;
-} */
 
 .btn{
 width:60px;
@@ -45,18 +38,22 @@ border: none;
   box-shadow: 0px 0px 17px 7px#545555;
   margin:auto;
 }
-
+.full-game{
+  margin:50px auto;
+  width:25vw;
+}
 .Movie_container{
  
   display: flex;
   flex-wrap: wrap;
-  width:70vw;
-  justify-content: left;
-  margin: 0px 0px 0px 50px; 
+  width:100vw;
+  justify-content:space-around;
+  /* margin: 0px 0px 0px 50px;  */
+  margin-top: 25px auto;
 
 }
 .movie-list{
-  width:25%;
+  width:20%;
   height:min-content;
   background-color: rgb(18, 18, 19);
   text-align:left;
@@ -68,7 +65,7 @@ border: none;
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
-  gap:16px; 
+  gap:2px; 
   justify-content:center;
 
  
@@ -106,8 +103,9 @@ h3{
   display: flex;
   flex-wrap: wrap;
   width:25vw;
+  align-items:center;
   justify-content: center;
-  margin: 0px 50px 0px 50px; 
+  /* margin: 0px 50px 0px 50px;  */
 }
 .game-box{
   height:100px;
@@ -119,6 +117,9 @@ h3{
   justify-content: center;
 }
 .ColorBox{
-  width:15vw;
-  margin:0px 200px 0px 200px;
+  width:14vw;
+  margin:50px auto;
+}
+.Msg{
+  margin:100px auto;
 }
