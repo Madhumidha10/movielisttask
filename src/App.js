@@ -34,6 +34,8 @@ import Toolbar from '@mui/material/Toolbar';
 
 
 export default function App() {
+
+
   const history=useHistory();
   const list = [
     {
@@ -85,7 +87,7 @@ export default function App() {
       
       
   ];
-  const [movieList,setMovieList]=useState(list);
+
   const [mode,setMode]=useState("dark");
   const theme=createTheme({
     palette:{
@@ -115,20 +117,20 @@ export default function App() {
         <Msg />
       </Route>
       <Route path="/movies/add">
-      <AddMovie movieList={movieList} setMovieList={setMovieList} />
+      <AddMovie />
       </Route>
       <Route path="/movies/edit/:id">
-      <EditMovie movieList={movieList} setMovieList={setMovieList} />
+      <EditMovie />
       </Route>
       <Route path="/movies/:id">
-        <MovieDetails movieList={movieList} /> 
+        <MovieDetails /> 
           
       </Route>
       <Route path="/movies">
         
 
   
-        <MovieListContainer  movieList={movieList} setMovieList={setMovieList} />
+        <MovieListContainer  />
       </Route>
       <Route path="/color-game">
         <Colorbox />
@@ -205,6 +207,8 @@ function Movielist({name,poster,cast,summary,rating},index)
  
 
   );
+
+
 }
 
 

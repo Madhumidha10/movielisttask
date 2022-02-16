@@ -1,23 +1,41 @@
-import React from "react";
-import { useParams} from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import { useParams,useHistory} from "react-router-dom";
+import Rating from '@mui/material/Rating';
+import { grey } from '@mui/material/colors';
+import StarIcon from '@mui/icons-material/Star';
+import Button from '@mui/material/Button';
 
-export function MovieDetails({ movieList }) {
+export function MovieDetails() {
   const { id } = useParams();
-  const movie = movieList[id];
+  const [movie,setMovie]=useState([]);
+  const history=useHistory();
+
+  useEffect(() => {
+    fetch(
+      `https://my-json-server.typicode.com/Madhumidha10/moviedb/movies/${id}`,
+      {
+        method: "GET",
+      }
+    ) // promise
+      .then((data) => data.json()) // Response object
+      .then((mv) => setMovie(mv))
+      .catch((err)=>console.log(err));
+}, []);
+  //const movie = movieList[id];
   return (
       
     <div className='MovieDetails' >
-   <iframe width="100%" height="500" src={movie.trailer}  
-    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      <div class="movie-inner">
-      <h2>{movie.name}</h2>
+   <iframe width="100%" height="480" src={movie.trailer}  
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe> 
+        
+        
+        <h2>{movie.name}</h2>
+           <Rating key={movie.id} name="size-small" defaultValue={movie.rating} max={10} precision={0.5}
+          emptyIcon={<StarIcon style={{ color: grey[100] }} fontSize="inherit" readOnly/>}  />
       <p>{movie.summary}</p>
-      
-        <h2>Rating </h2>
-        <p>{movie.rating}</p>
-      </div>
-      
-    </div>    
-
+      <Button variant="contained" style={{marginLeft:"auto"}} onClick={()=>{history.push(`/movies`)}} > Back </Button>
+        
+</div>
   );
 }
 
