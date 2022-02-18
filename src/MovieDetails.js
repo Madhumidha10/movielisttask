@@ -4,7 +4,7 @@ import Rating from '@mui/material/Rating';
 import { grey } from '@mui/material/colors';
 import StarIcon from '@mui/icons-material/Star';
 import Button from '@mui/material/Button';
-
+import {API} from "./global";
 export function MovieDetails() {
   const { id } = useParams();
   const [movie,setMovie]=useState([]);
@@ -12,7 +12,7 @@ export function MovieDetails() {
 
   useEffect(() => {
     fetch(
-      `https://my-json-server.typicode.com/Madhumidha10/moviedb/movies/${id}`,
+      `${API}/movies/${id}`,
       {
         method: "GET",
       }

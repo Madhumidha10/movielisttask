@@ -29,6 +29,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Paper from '@mui/material/Paper';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import BasicForm from './BasicForm';
 
 
 
@@ -115,6 +116,7 @@ export default function App() {
       <Switch>
       <Route exact path="/">
         <Msg />
+        <BasicForm />
       </Route>
       <Route path="/movies/add">
       <AddMovie />
@@ -163,56 +165,53 @@ export default function App() {
 }
 
 
-function Movielist({name,poster,cast,summary,rating},index)
-{
-  const styles={color:rating>7?"yellow":"white"}
-  const [selected, setSelected] = useState(false);
-  const toggle={display:selected?"block":"none"}
-  return( 
+// function Movielist({name,poster,cast,summary,rating},index)
+// {
+//   const styles={color:rating>7?"yellow":"white"}
+//   const [selected, setSelected] = useState(false);
+//   const toggle={display:selected?"block":"none"}
+//   return( 
        
       
       
-        <div className='movie-list' key={index}>
-       <Card sx={{ maxWidth: 345,bgcolor:grey[900] }} variant="outlined" >
+//         <div className='movie-list' key={index}>
+//        <Card sx={{ maxWidth: 345,bgcolor:grey[900] }} variant="outlined" >
        
        
-       <Avatar variant="square" alt={name} src={poster}  sx={{ width: 345, height: 200}}/>
+//        <Avatar variant="square" alt={name} src={poster}  sx={{ width: 345, height: 200}}/>
        
-       <Typography component="legend" variant="h4" sx={{color:grey[100],textAlign:"center"}} >{name} 
-       <IconButton aria-label="toggle" color="primary" onClick={()=> setSelected(!selected)}>
-          {selected?<ExpandLessIcon />:<ExpandMoreIcon />}</IconButton>
-      {selected? <Typography  component="legend" variant="subtitle2" sx={{color:grey[100],textAlign:"left"}} >{summary} </Typography>:""}
+//        <Typography component="legend" variant="h4" sx={{color:grey[100],textAlign:"center"}} >{name} 
+//        <IconButton aria-label="toggle" color="primary" onClick={()=> setSelected(!selected)}>
+//           {selected?<ExpandLessIcon />:<ExpandMoreIcon />}</IconButton>
+//       {selected? <Typography  component="legend" variant="subtitle2" sx={{color:grey[100],textAlign:"left"}} >{summary} </Typography>:""}
      
-       </Typography>
+//        </Typography>
        
-       <Typography component="legend" variant="h5" sx={{color:grey[100],textAlign:"left"}} >Casting </Typography> 
-        <div className='cast'>
-        {cast.map(nm=><List key={nm}  style={{ color:grey[100]}}><PersonOutlineRoundedIcon sx={{fontSize:"14px"}} />{nm}</List>)}
-        </div>
+//        <Typography component="legend" variant="h5" sx={{color:grey[100],textAlign:"left"}} >Casting </Typography> 
+//         <div className='cast'>
+//         {cast.map(nm=><List key={nm}  style={{ color:grey[100]}}><PersonOutlineRoundedIcon sx={{fontSize:"14px"}} />{nm}</List>)}
+//         </div>
         
-    {/* <Typography style={toggle} component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>
-      */}
-       <Typography component="legend" variant="h6" sx={{color:grey[100],textAlign:"center"}} >Rating : {rating}/10 
+//     {/* <Typography style={toggle} component="legend" variant="subtitle2" sx={{color:grey[100]}} >{summary} </Typography>
+//       */}
+//        <Typography component="legend" variant="h6" sx={{color:grey[100],textAlign:"center"}} >Rating : {rating}/10 
 
-       <Rating name="size-small" defaultValue={rating} max={10} precision={0.5}    emptyIcon={<StarIcon style={{ color:grey[100]}} fontSize="inherit" />}readOnly />
-       </Typography>
-       <Counter />
-       </Card>
+//        <Rating name="size-small" defaultValue={rating} max={10} precision={0.5}    emptyIcon={<StarIcon style={{ color:grey[100]}} fontSize="inherit" />}readOnly />
+//        </Typography>
+//        <Counter />
+//        </Card>
       
           
-       </div>   
+//        </div>   
          
    
        
  
 
-  );
+//   );
 
 
-}
-
-
-
+// }
 
 
 {/* <Button
