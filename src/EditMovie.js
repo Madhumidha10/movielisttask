@@ -32,20 +32,12 @@ export function EditMovie() {
 function EditMovieForm({movie})
 {
   
-  // const formik = useFormik({
-  //   initialValues: { name: movie.name, poster: movie.poster,rating:movie.rating,trailer:movie.trailer,summary:movie.summary,cast:movie.cast },
-  //   validationSchema: movieValidationSchema,
-  //   onSubmit: (updatedMovie) => {
-  //     // editMovie(updatedMovie);
-
-  //   },
-  // });
-
-  const formik = useFormik({
+ const formik = useFormik({
     
     initialValues: {name:movie.name, poster:movie.poster, cast:movie.cast, summary:movie.summary, rating:movie.rating, trailer:movie.trailer},
     validationSchema: movieValidationSchema,
     onSubmit: (updatedMovie) => {
+      updatedMovie.cast=[...updatedMovie.cast.split(',')]
             editMovie(updatedMovie);
 
     },

@@ -43,6 +43,7 @@ export function AddMovie() {
     initialValues: { name: "", poster: "",rating:0,trailer:"",summary:"",cast:"" },
     validationSchema: movieValidationSchema,
     onSubmit: (newMovie) => {
+      newMovie.cast=[...newMovie.cast.split(',')]
             addMovie(newMovie);
 
     },
